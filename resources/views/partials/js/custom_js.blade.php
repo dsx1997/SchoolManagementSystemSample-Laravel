@@ -192,8 +192,6 @@
 
     $('form.ajax-update').on('submit', function(ev){
         ev.preventDefault();
-        alert('here');
-        console.log($(this));
         submitForm($(this));
         var div = $(this).data('reload');
         div ? reloadDiv(div) : '';
@@ -214,8 +212,6 @@
     function submitForm(form, formType){
         var btn = form.find('button[type=submit]');
         disableBtn(btn);
-        var email = document.getElementById('email');
-        console.log(email);
         var ajaxOptions = {
             url:form.attr('action'),
             type:'POST',
@@ -282,4 +278,9 @@
 
     function clearForm(form){
         form.find('.select, .select-search').val([]).select2({ placeholder: 'Select...'});
-   
+        form[0].reset();
+    }
+
+
+
+</script>
